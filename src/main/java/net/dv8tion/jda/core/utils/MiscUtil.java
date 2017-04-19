@@ -21,8 +21,6 @@ import gnu.trove.map.hash.TLongObjectHashMap;
 import net.dv8tion.jda.core.entities.ISnowflake;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.util.Args;
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -94,7 +92,11 @@ public class MiscUtil
 
     /**
      * Returns the shard id the given guild will be loaded on for the given amout of shards.
-     * 
+     *
+     * Discord determines which guilds a shard is connect to using the following format:
+     * {@code shardId == (guildId >> 22) % totalShards}
+     * <br>Source for formula: <a href="https://discordapp.com/developers/docs/topics/gateway#sharding">Discord Documentation</a>
+     *
      * @param guildId
      *             The guild id.
      * @param shards
@@ -109,7 +111,11 @@ public class MiscUtil
 
     /**
      * Returns the shard id the given guild will be loaded on for the given amout of shards.
-     * 
+     *
+     * Discord determines which guilds a shard is connect to using the following format:
+     * {@code shardId == (guildId >> 22) % totalShards}
+     * <br>Source for formula: <a href="https://discordapp.com/developers/docs/topics/gateway#sharding">Discord Documentation</a>
+     *
      * @param guildId
      *             The guild id.
      * @param shards
